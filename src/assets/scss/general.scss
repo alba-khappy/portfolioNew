@@ -3,13 +3,17 @@
 //  src: url('../fonts/OpenSans-Regular.woff2') format('woff2'), url('../fonts/OpenSans-Regular.woff') format('woff');
 //}
 
+$whiteColorText: #E1E1E1;
+$yellowColorText: #F99B0D;
+$blackColorText: #252627;
+
 body {
   background: rgb(46,47,48);
   background: linear-gradient(135deg, rgba(46,47,48,1) 0%, rgba(20,21,22,1) 50%, rgba(20,21,22,1) 50%, rgba(46,47,48,1) 100%);
   font-family: 'OpenSans-R', sans-serif;
   font-size: 16px;
   line-height: 32px;
-  color: #E1E1E1;
+  color: $whiteColorText;
 }
 
 html {
@@ -62,10 +66,6 @@ button {
   cursor: pointer;
 }
 
-$whiteColorText: #E1E1E1;
-$yellowColorText: #F99B0D;
-$blackColorText: #252627;
-
 @mixin primaryButton {
   display: block;
   width: fit-content;
@@ -87,10 +87,11 @@ $blackColorText: #252627;
   font-size: 32px;
 }
 
-h2 {
+.h2-style {
   text-align: center;
   font-weight: 700;
   font-size: 40px;
   color: #B2B2B2;
   letter-spacing: 0.1em;
+  margin-bottom: 40px;
 }
