@@ -36,7 +36,21 @@
 
                 section.illustrator-experience
                     h2.h2-style  Работы в Adobe Illustrator
-                    div slider
+                    div.wrapper
+                        split-carousel(v-bind="option")
+                            h3(slot='left-arrow') left
+                            split-carousel-item.hhf custom content
+                            split-carousel-item.hhf custom content
+                            split-carousel-item.hhf custom content
+                            split-carousel-item.hhf custom content
+                            split-carousel-item.hhf custom content
+                            split-carousel-item.hhf custom content
+                            split-carousel-item.hhf custom content
+                            split-carousel-item.hhf custom content
+                            h3(slot='right-arrow') right
+
+
+
 
                 section.contacts
                     h2.h2-style  Контакты
@@ -57,11 +71,29 @@
 </template>
 
 <script>
+    import { SplitCarousel, SplitCarouselItem } from "vue-split-carousel";
+    const defaultConfig = {
+        displayAmount: 2,
+        autoplay: true,
+        speed: 500,
+        interval: 3000,
+        loop: true,
+        height: 80,
+        itemWidth: 120,
+        pauseOnHover: true,
+        timingFunction: "ease",
+        arrowVisible: "enable",
+    };
 
     export default {
         name: 'App',
+        components: {
+            SplitCarousel,
+            SplitCarouselItem
+        },
         data() {
             return {
+                option: { ...defaultConfig },
                 rows: {
                     q1: {
                         term: 'СПАО Ингосстрах',
@@ -102,6 +134,28 @@
 
 <style lang="scss">
     @import "./assets/scss/general.scss";
+
+    .hhf {
+        width: 100px;
+        height: 100px;
+        background: red;
+    }
+
+    .wrapper {
+        width: 800px;
+        margin: 0 auto;
+    }
+    .box {
+        border: 1px solid #eee;
+        height: 100%;
+        box-sizing: border-box;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .operator {
+        padding: 30px 0;
+    }
 
     .header__section {
         padding: 70px 0 100px;
@@ -168,8 +222,12 @@
     .work-experience__accordion-item {
         padding: 40px 0 0;
         margin: 0;
-        border-top: 1px solid $yellowColorText;
-        border-bottom: 1px solid $yellowColorText;
+        border-top: 1px solid transparent;
+        border-image: url(./assets/images/accordion-border.svg) 30 stretch;
+
+        &:nth-child(3) {
+            border-bottom: 1px solid transparent;
+        }
     }
 
     .work-experience__accordion-heading {
@@ -203,6 +261,17 @@
         }
     }
 
+    /*swiper*/
+
+    .swiper-slide{
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+    }
+    .swiper-container {
+        height : 450px;
+        width : 100%;
+    }
 
 
 </style>

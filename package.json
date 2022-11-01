@@ -11,7 +11,9 @@
     "bootstrap": "^5.2.2",
     "bootstrap-vue": "^2.23.1",
     "core-js": "^3.6.5",
-    "vue": "^2.7.13"
+    "swiper": "^8.4.4",
+    "vue": "^2.7.13",
+    "vue-split-carousel": "^1.1.1"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.5.15",
