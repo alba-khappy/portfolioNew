@@ -24,7 +24,7 @@
                     p Более подробное резюме можете просмотреть
                     a(href="/").about__link-resume на сайте hh.ru
 
-                section.work-experience
+                section
                     h2.h2-style  Опыт работы
                     div.work-experience__accordion
                         dl(v-for="row in rows").work-experience__accordion-item
@@ -38,32 +38,33 @@
                     h2.h2-style  Работы в Adobe Illustrator
                     div.wrapper
                         split-carousel(v-bind="option")
-                            h3(slot='left-arrow') left
-                            split-carousel-item.hhf custom content
-                            split-carousel-item.hhf custom content
-                            split-carousel-item.hhf custom content
-                            split-carousel-item.hhf custom content
-                            split-carousel-item.hhf custom content
-                            split-carousel-item.hhf custom content
-                            split-carousel-item.hhf custom content
-                            split-carousel-item.hhf custom content
-                            h3(slot='right-arrow') right
+                            h3(slot='left-arrow').illustrator-experience__swiper-btn.illustrator-experience__swiper-btn--left
+                            split-carousel-item(v-for="illustration in illustrations").illustrator-experience__image-container
+                                img(:src="require(`./assets/images/${illustration}`)").illustrator-experience__image
+                            h3(slot='right-arrow').illustrator-experience__swiper-btn
 
 
 
 
-                section.contacts
+                section.contacts.d-flex.flex-column.align-items-center
                     h2.h2-style  Контакты
-                    p Если вы хотите связаться со мной :
-                    p мой почтовый ящик
-                    a(href="") albinabist1993@mail.ru
-                    p или
-                    p оставьте свою почту и выберите цель общения.
-                    form
-                        input
-                        input
-                        input
-                        button(type="submit") Отправить
+                    p.contacts__text Если вы хотите связаться со мной :
+                    p.contacts__text мой почтовый ящик
+                    a(href="").contacts__link albinabist1993@mail.ru
+                    p.contacts__text или
+                    p.contacts__text оставьте свою почту и выберите цель общения.
+                    form.contacts__form.d-flex.flex-column.align-items-center
+                        input.contacts__input
+                        input.contacts__input
+                        div.contacts__dropdown
+                            b-dropdown(id="dropdown-left", text='Выберите цель', no-caret).contacts__dropdown-heading
+                                b-dropdown-item(href='#').contacts__item Предложение вакансии
+                                b-dropdown-item(href='#').contacts__item Заказ landing page
+                                b-dropdown-item(href='#').contacts__item Создание дизайна сайта
+                                b-dropdown-item(href='#').contacts__item  Другой вопрос
+
+
+                        button(type="submit").contacts__btn-submit Отправить
             footer © А. С. Хапилина, 2022
 
 
@@ -73,13 +74,13 @@
 <script>
     import { SplitCarousel, SplitCarouselItem } from "vue-split-carousel";
     const defaultConfig = {
-        displayAmount: 2,
+        displayAmount: 4,
         autoplay: true,
-        speed: 500,
+        speed: 300,
         interval: 3000,
         loop: true,
-        height: 80,
-        itemWidth: 120,
+        height: 220,
+        itemWidth: 215,
         pauseOnHover: true,
         timingFunction: "ease",
         arrowVisible: "enable",
@@ -94,6 +95,7 @@
         data() {
             return {
                 option: { ...defaultConfig },
+                illustrations: ["il-1.png", "il-2.png", "il-3.png","il-4.png", "il-5.png", "il-6.png"],
                 rows: {
                     q1: {
                         term: 'СПАО Ингосстрах',
@@ -134,28 +136,6 @@
 
 <style lang="scss">
     @import "./assets/scss/general.scss";
-
-    .hhf {
-        width: 100px;
-        height: 100px;
-        background: red;
-    }
-
-    .wrapper {
-        width: 800px;
-        margin: 0 auto;
-    }
-    .box {
-        border: 1px solid #eee;
-        height: 100%;
-        box-sizing: border-box;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-    .operator {
-        padding: 30px 0;
-    }
 
     .header__section {
         padding: 70px 0 100px;
@@ -261,16 +241,112 @@
         }
     }
 
+    /*illustrator-experience*/
+
+    .illustrator-experience__image-container:hover {
+        transform: scale(1.1);
+    }
+
+    .illustrator-experience__image {
+        width: 215px;
+        height: 220px;
+        filter: grayscale(1);
+        transition: .3s ease-in-out;
+    }
+
+    .illustrator-experience__image:hover {
+        filter: grayscale(0);
+    }
+
     /*swiper*/
+
+    .wrapper {
+        width: 100%;
+        margin: 0 auto;
+    }
 
     .swiper-slide{
         display: flex;
         justify-content: center;
         flex-direction: column;
     }
-    .swiper-container {
-        height : 450px;
-        width : 100%;
+
+
+    .illustrator-experience__swiper-btn {
+        background: transparent url("assets/images/arrow.svg") no-repeat center;
+        width: 35px;
+        height: 60px;
+    }
+
+    .illustrator-experience__swiper-btn--left {
+        transform: rotate(180deg);
+    }
+
+    /*contacts*/
+
+    .contacts__text {
+        color: $whiteColorText;
+        font-size: 30px;
+    }
+
+    .contacts__link {
+        color: $yellowColorText;
+        font-size: 30px;
+    }
+
+    .contacts__input {
+        width: 100%;
+        max-width: 680px;
+        background: #D9D9D9;
+        box-shadow: 1px 1px 2px rgba(255, 255, 255, 0.3), -1px -1px 2px rgba(135, 135, 135, 0.5), inset -12px 12px 24px rgba(135, 135, 135, 0.2), inset 12px -12px 24px rgba(135, 135, 135, 0.2), inset -12px -12px 24px rgba(255, 255, 255, 0.9), inset 12px 12px 30px rgba(135, 135, 135, 0.9);
+        border-radius: 30px;
+        padding: 5px 20px;
+        color: $blackColorText;
+        margin-bottom: 30px;
+        border: 0;
+    }
+
+    .contacts__btn-submit {
+        @include primaryButton;
+    }
+
+    .contacts__dropdown {
+        margin-bottom: 100px;
+    }
+
+    .dropdown-left__BV_toggle_.btn-secondary {
+        background: #D9D9D9;
+    }
+
+    .dropdown-menu button {
+        background: #D9D9D9;
+    }
+
+    .dropdown-menu {
+        background: #D9D9D9;
+        box-shadow: 1px 1px 2px rgba(255, 255, 255, 0.3), -1px -1px 2px rgba(135, 135, 135, 0.5), inset -12px 12px 24px rgba(135, 135, 135, 0.2), inset 12px -12px 24px rgba(135, 135, 135, 0.2), inset -12px -12px 24px rgba(255, 255, 255, 0.9), inset 12px 12px 30px rgba(135, 135, 135, 0.9);
+        border-radius: 30px;
+    }
+
+    .contacts__dropdown-heading {
+        max-width: 680px;
+        min-width: 220px;
+        border-radius: 30px;
+    }
+
+    #dropdown-left button {
+        box-shadow: 1px 1px 2px rgba(255, 255, 255, 0.3), -1px -1px 2px rgba(135, 135, 135, 0.5), inset -12px 12px 24px rgba(135, 135, 135, 0.2), inset 12px -12px 24px rgba(135, 135, 135, 0.2), inset -12px -12px 24px rgba(255, 255, 255, 0.9), inset 12px 12px 30px rgba(135, 135, 135, 0.9);
+        border-radius: 30px;
+        color: $blackColorText;
+    }
+
+    div div#dropdown-left ul.dropdown-menu.show {
+        border-radius: 30px;
+    }
+
+    .contacts__item a {
+        padding: 10px 14px;
+        text-align: center;
     }
 
 
