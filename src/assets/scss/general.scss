@@ -1,13 +1,9 @@
-//@font-face {
-//  font-family: 'JetBrainsMono';
-//  src: url("~@/assets/fonts/JetBrainsMono.woff") format("woff"),
-//  url("~@/assets/fonts/JetBrainsMono.woff2") format("woff2");
-//}
-
 @font-face {
-  font-family: "Montserrat";
-  font-weight: 700;
-  src: url("~@/assets/fonts/CormorantSC-Medium.woff") format("woff");
+  font-family: "JetBrainsMono";
+  //src: url('../fonts/JetBrainsMono.woff2') format('woff2');
+  src: url('./assets/fonts/JetBrainsMono.woff2') format("woff2");
+  //src: url(~@/assets/fonts/JetBrainsMono.woff2) format("woff2");
+
 }
 
 $whiteColorText: #E1E1E1;
@@ -17,7 +13,8 @@ $blackColorText: #252627;
 body {
   background: rgb(46,47,48);
   background: linear-gradient(135deg, rgba(46,47,48,1) 0%, rgba(20,21,22,1) 50%, rgba(20,21,22,1) 50%, rgba(46,47,48,1) 100%);
-  font-family: "Montserrat", sans-serif;
+  font-family: 'JetBrains Mono', monospace;
+  //font-family: 'Roboto', sans-serif;
   font-size: 16px;
   line-height: 32px;
   color: $whiteColorText;
@@ -101,4 +98,5 @@ button {
   color: #B2B2B2;
   letter-spacing: 0.1em;
   margin-bottom: 40px;
+  font-family: 'JetBrains Mono', monospace;
 }

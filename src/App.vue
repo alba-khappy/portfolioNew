@@ -158,6 +158,7 @@
         box-shadow: -13px 13px 26px rgba(14, 14, 14, 0.2), 13px -13px 26px rgba(14, 14, 14, 0.2), -13px -13px 26px rgba(54, 54, 54, 0.9), 13px 13px 33px rgba(14, 14, 14, 0.9), inset 1px 1px 2px rgba(54, 54, 54, 0.3), inset -1px -1px 2px rgba(14, 14, 14, 0.5);
         border-radius: 38px;
         color: $whiteColorText;
+        font-family: 'JetBrains Mono', monospace;
     }
 
     .header__container-main-heding {
@@ -168,6 +169,7 @@
         color: $yellowColorText;
         font-weight: 400;
         font-size: 59px;
+        font-family: 'JetBrains Mono', monospace;
     }
 
     .header__photo {
@@ -176,6 +178,7 @@
 
     .header__btn-resume {
         @include primaryButton;
+        font-family: 'JetBrains Mono', monospace;
     }
 
     /*about*/
@@ -187,6 +190,7 @@
         padding: 30px 70px;
         color: $whiteColorText;
         margin-bottom: 90px;
+        font-family: 'JetBrains Mono', monospace;
     }
 
     .about__text-technology, .about__link-resume {
@@ -197,6 +201,7 @@
 
     .work-experience__accordion {
         color: white;
+        font-family: 'JetBrains Mono', monospace;
     }
 
     .work-experience__accordion-item {
@@ -285,6 +290,7 @@
     /*contacts*/
 
     .contacts__text {
+        font-family: 'JetBrains Mono', monospace;
         color: $whiteColorText;
         font-size: 30px;
     }
@@ -308,9 +314,11 @@
 
     .contacts__btn-submit {
         @include primaryButton;
+        font-family: 'JetBrains Mono', monospace;
     }
 
     .contacts__dropdown {
+        font-family: 'JetBrains Mono', monospace;
         margin-bottom: 100px;
     }
 
@@ -330,7 +338,7 @@
 
     .contacts__dropdown-heading {
         max-width: 680px;
-        min-width: 220px;
+        min-width: 224px;
         border-radius: 30px;
     }
 
@@ -345,7 +353,7 @@
     }
 
     .contacts__item a {
-        padding: 10px 14px;
+        padding: 10px 5px;
         text-align: center;
     }
 
